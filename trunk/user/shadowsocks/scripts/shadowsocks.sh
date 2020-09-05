@@ -3,7 +3,7 @@
 # Copyright (C) 2017 openwrt-ssr
 # Copyright (C) 2017 yushi studio <ywb94@qq.com>
 # Copyright (C) 2018 lean <coolsnowwolf@gmail.com>
-# Copyright (C) 2019 chongshengB <bkye@vip.qq.com>
+# Copyright (C) 2019 SuperMTNC <bkye@vip.qq.com>
 #
 # This is free software, licensed under the GNU General Public License v3.
 # See /LICENSE for more information.
@@ -59,7 +59,7 @@ gen_config_file() {
 		tj_bin="/usr/bin/trojan"
 		if [ ! -f "$tj_bin" ]; then
 		if [ ! -f "/tmp/trojan" ];then
-			curl -k -s -o /tmp/trojan --connect-timeout 10 --retry 3 https://cdn.jsdelivr.net/gh/chongshengB/rt-n56u/trunk/user/trojan/trojan
+			curl -k -s -o /tmp/trojan --connect-timeout 10 --retry 3 https://cdn.jsdelivr.net/gh/SuperMTNC/rt-n56u/trunk/user/trojan/trojan
 			if [ ! -f "/tmp/trojan" ]; then
 				logger -t "SS" "trojan二进制文件下载失败，可能是地址失效或者网络异常！"
 				nvram set ss_enable=0
@@ -85,7 +85,7 @@ gen_config_file() {
 		v2_bin="/usr/bin/v2ray"
 		if [ ! -f "$v2_bin" ]; then
 		if [ ! -f "/tmp/v2ray" ];then
-			curl -k -s -o /tmp/v2ray --connect-timeout 10 --retry 3 https://cdn.jsdelivr.net/gh/chongshengB/rt-n56u/trunk/user/v2ray/v2ray
+			curl -k -s -o /tmp/v2ray --connect-timeout 10 --retry 3 https://cdn.jsdelivr.net/gh/SuperMTNC/rt-n56u/trunk/user/v2ray/v2ray
 			if [ ! -f "/tmp/v2ray" ]; then
 				logger -t "SS" "v2ray二进制文件下载失败，可能是地址失效或者网络异常！"
 				nvram set ss_enable=0
@@ -182,7 +182,7 @@ start_rules() {
 	if [ $dports = "0" ]; then
 		proxyport=" "
 	else
-		proxyport="-m multiport --dports 22,53,587,465,995,993,143,80,443"
+		proxyport="-m multiport --dports 22,53,5353,587,465,995,993,143,80,443"
 	fi
 	/usr/bin/ss-rules \
 	-s "$server" \
@@ -596,5 +596,5 @@ reserver)
 	echo "check"
 	#exit 0
 	;;
-esac
+esac 
 
