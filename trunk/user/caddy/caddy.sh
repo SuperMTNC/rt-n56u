@@ -1,5 +1,5 @@
 #!/bin/sh
-#chongshengB 2020
+#SuperMTNC 2020
 caddy_enable=`nvram get caddy_enable`
 caddy_wan=`nvram get caddy_wan`
 caddy_file=`nvram get caddy_file`
@@ -17,7 +17,7 @@ caddy_start ()
 		caddybin="/usr/bin/caddy_filebrowser"
 		if [ ! -f "$caddybin" ]; then
 			if [ ! -f "$caddy_dir/caddy/caddy_filebrowser" ]; then
-				curl -k -s -o $caddy_dir/caddy/caddy_filebrowser --connect-timeout 10 --retry 3 https://cdn.jsdelivr.net/gh/chongshengB/rt-n56u/trunk/user/caddy/caddy_filebrowser
+				curl -k -s -o $caddy_dir/caddy/caddy_filebrowser --connect-timeout 10 --retry 3 https://cdn.jsdelivr.net/gh/SuperMTNC/rt-n56u/trunk/user/caddy/caddy_filebrowser
 				if [ ! -f "$caddy_dir/caddy/caddy_filebrowser" ]; then
 					logger -t "caddy" "caddy_filebrowser二进制文件下载失败，可能是地址失效或者网络异常！"
 					nvram set caddy_enable=0
