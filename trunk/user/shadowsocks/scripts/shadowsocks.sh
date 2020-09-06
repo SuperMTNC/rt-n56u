@@ -1,10 +1,5 @@
 #!/bin/sh
 #
-# Copyright (C) 2017 openwrt-ssr
-# Copyright (C) 2017 yushi studio <ywb94@qq.com>
-# Copyright (C) 2018 lean <coolsnowwolf@gmail.com>
-# Copyright (C) 2019 SuperMTNC <bkye@vip.qq.com>
-#
 # This is free software, licensed under the GNU General Public License v3.
 # See /LICENSE for more information.
 #
@@ -182,7 +177,7 @@ start_rules() {
 	if [ $dports = "0" ]; then
 		proxyport=" "
 	else
-		proxyport="-m multiport --dports 22,53,5353,587,465,995,993,143,80,443"
+		proxyport="-m multiport --dports 22,53,587,465,995,993,143,80,443"
 	fi
 	/usr/bin/ss-rules \
 	-s "$server" \
@@ -359,7 +354,7 @@ rm -f /tmp/adnew.conf
 }
 
 
-# ================================= 启动 Socks5代理 ===============================
+# =========== 启动 Socks5代理 ==========
 start_local() {
 	s5_enable=$(nvram get socks5_enable)
 	s5_wenable=$(nvram get socks5_wenable)
@@ -429,7 +424,7 @@ EOF
 	fi
 }
 
-# ================================= 启动 SS ===============================
+# =============== 启动 SS ===================
 ssp_start() { 
     ss_enable=`nvram get ss_enable`
 	[ "$GLOBAL_SERVER" = "nil" ] && return 1
@@ -452,7 +447,7 @@ ssp_start() {
         nvram set check_mode=0
 }
 
-# ================================= 关闭SS ===============================
+# ================== 关闭SS ===================
 
 ssp_close() {
 	rm -rf /tmp/cdn
@@ -562,7 +557,7 @@ kill_process() {
 }
 
 
-# ================================= 重启 SS ===============================
+# ================= 重启 SS ==================
 ressp() {
 	BACKUP_SERVER=$(nvram get backup_server)
 	start_redir $BACKUP_SERVER
@@ -596,5 +591,5 @@ reserver)
 	echo "check"
 	#exit 0
 	;;
-esac 
+esac
 
