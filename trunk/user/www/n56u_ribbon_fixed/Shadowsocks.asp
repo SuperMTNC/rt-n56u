@@ -2005,8 +2005,8 @@
 											<div id="wnd_ss_dlink" style="display:none">
 												<table width="100%" cellpadding="4" cellspacing="0" class="table">
 													<tr>
-														<th colspan="2" style="background-color: #E3E3E3;">
-															订阅节点:添加完地址请先点击一下保存设置按钮,再点击更新订阅按钮。</th>
+														<th colspan="2" style="background-color: #FF69B4;">
+															订阅节点: 添加完地址请先点击一下保存设置,再点击更新订阅。</th>
 													</tr>
 													<tr>
 														<td colspan="3">
