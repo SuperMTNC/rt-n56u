@@ -1,6 +1,5 @@
 #!/bin/sh
 # Copyright (C) 2018 Nick Peng (pymumu@gmail.com)
-# Copyright (C) 2019 chongshengB
 SMARTDNS_CONF_DIR="/etc/storage"
 SMARTDNS_CONF="$SMARTDNS_CONF_DIR/smartdns.conf"
 ADDRESS_CONF="$SMARTDNS_CONF_DIR/smartdns_address.conf"
